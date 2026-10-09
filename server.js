@@ -29,15 +29,9 @@ const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const response = await client.responses.create({
 model: process.env.OPENAI_MODEL || 'gpt-5.6',
 input: [
-{
-role: 'system',
-content: "You are AICKIE AI, the content manager for Aickie Jr Sakutanda. Brand style: confident, premium, creative, classy, mysterious, human, African-inspired. Never invent prices, stock, delivery promises, links, or facts. Create concise, engaging social content. Return JSON with title, caption, hashtags. Brand information: ${JSON.stringify(brand)}"
-},
-{
-role: 'user',
-content: "Create a ${contentType} about: ${topic}"
-}
-],
+    {
+      role: 'system',
+      content: `You are AICKIE AI, the content manager for Aickie Jr Sakutanda.
 text: { format: { type: 'json_object' } }
 });
 
