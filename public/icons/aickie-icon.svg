@@ -1,0 +1,9 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#0b0c10"/>
+  <rect x="18" y="18" width="476" height="476" rx="88" fill="none" stroke="#d7b56d" stroke-width="8"/>
+  <path d="M105 370 208 130h82l103 240h-72l-21-51h-102l-21 51z" fill="#f4f4f5"/>
+  <path d="M220 263h60l-30-77z" fill="#0b0c10"/>
+  <circle cx="370" cy="140" r="42" fill="#d7b56d"/>
+  <text x="370" y="153" font-family="Arial,sans-serif" font-size="32" font-weight="900" text-anchor="middle" fill="#0b0c10">AI</text>
+</svg>
