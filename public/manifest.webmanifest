@@ -1,0 +1,21 @@
+
+{
+  "id": "/",
+  "name": "AICKIE AI — Music Hub",
+  "short_name": "AICKIE AI",
+  "description": "Your music promotion and content creation hub.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0c10",
+  "theme_color": "#0b0c10",
+  "icons": [
+    {
+      "src": "/icons/aickie-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
