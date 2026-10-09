@@ -5,12 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="AICKIE AI Music Hub — create music promotions, captions, hashtags and content for your music.">
+
   <title>AICKIE AI — Music Hub</title>
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/aickie-icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/aickie-icon.svg">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div id="app"></div>
+
   <script type="module" src="/main.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .catch((error) => {
+            console.error('Service worker registration failed:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
+
 
