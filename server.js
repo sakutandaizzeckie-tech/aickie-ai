@@ -47,12 +47,16 @@ Brand information: ${JSON.stringify(brand)}`
 
     const text = response.output_text;
     res.json(JSON.parse(text));
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'AI generation failed.' });
-  }
-});
+  
+const safeTopic = String(topic).trim();
 
+res.json({
+  demo: true,
+  title: `AICKIE AI — ${safeTopic}`,
+  caption: `🔥 ${safeTopic}\n\nCreated with AICKIE AI Music Hub. Stay tuned for more music, creativity, and updates from Aickie Jr!`,
+  hashtags: '#AickieAI #AickieJr #MusicPromotion #Afrobeats'
+});
+} });
 app.get('/api/facebook/status', (req, res) => {
   res.json({
     connected: false,
