@@ -25,29 +25,27 @@ app.post('/api/generate', async (req, res) => {
   }
 
   try {
-    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    const response = await client.responses.create({
-      model: process.env.OPENAI_MODEL || 'gpt-5.6',
-      input: [
-        {
-          role: 'system',
-          content: `You are AICKIE AI, the content manager for Aickie Jr Sakutanda.
-Brand style: confident, premium, creative, classy, mysterious, human, African-inspired.
-Never invent prices, stock, delivery promises, links, or facts.
-Create concise, engaging social content. Return JSON with title, caption, hashtags.
-Brand information: ${JSON.stringify(brand)}`
-        },
-        {
-          role: 'user',
-          content: `Create a ${contentType} about: ${topic}`
-        }
-      ],
-      text: { format: { type: 'json_object' } }
-    });
+const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const response = await client.responses.create({
+model: process.env.OPENAI_MODEL || 'gpt-5.6',
+input: [
+{
+role: 'system',
+content: "You are AICKIE AI, the content manager for Aickie Jr Sakutanda. Brand style: confident, premium, creative, classy, mysterious, human, African-inspired. Never invent prices, stock, delivery promises, links, or facts. Create concise, engaging social content. Return JSON with title, caption, hashtags. Brand information: ${JSON.stringify(brand)}"
+},
+{
+role: 'user',
+content: "Create a ${contentType} about: ${topic}"
+}
+],
+text: { format: { type: 'json_object' } }
+});
 
-    const text = response.output_text;
-    res.json(JSON.parse(text));
-  
+res.json(JSON.parse(response.output_text));
+
+} catch (err) {
+console.error('AICKIE AI generation error:', err);
+
 const safeTopic = String(topic).trim();
 
 res.json({
@@ -56,7 +54,9 @@ res.json({
   caption: `🔥 ${safeTopic}\n\nCreated with AICKIE AI Music Hub. Stay tuned for more music, creativity, and updates from Aickie Jr!`,
   hashtags: '#AickieAI #AickieJr #MusicPromotion #Afrobeats'
 });
-} });
+
+}
+});
 app.get('/api/facebook/status', (req, res) => {
   res.json({
     connected: false,
