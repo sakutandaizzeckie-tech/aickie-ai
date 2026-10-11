@@ -364,6 +364,55 @@ app.post('/api/facebook/publish', async (req, res) => {
   }
 });
 
+app.get('/privacy', (req, res) => {
+  res.type('html').send(`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AICKIE AI Privacy Policy</title>
+</head>
+<body style="font-family:Arial;max-width:800px;margin:40px auto;padding:20px;line-height:1.6">
+<h1>AICKIE AI Privacy Policy</h1>
+<p>Last updated: 12 October 2026</p>
+<p>AICKIE AI is a content-generation tool operated by Aickie Jr Sakutanda.</p>
+<h2>Information we process</h2>
+<p>When you use AICKIE AI, information you submit, such as topics and brand details, is processed to generate content. If you connect Facebook, the app may receive your basic profile information and information about Facebook Pages you are authorised to manage, including Page identifiers and access tokens.</p>
+<h2>How information is used</h2>
+<p>Submitted prompts are sent to OpenAI to generate content. Facebook Page information and permissions are used to display available Pages and perform publishing actions you approve.</p>
+<h2>Storage and security</h2>
+<p>The current version keeps connected Page information and access tokens in server memory rather than a persistent database. This information may be lost when the server restarts. We take steps to protect information, but no online service can guarantee absolute security.</p>
+<h2>Sharing</h2>
+<p>Information is processed by the services needed to operate AICKIE AI, including OpenAI for content generation and Meta when you use Facebook features. Their own privacy terms also apply.</p>
+<h2>Your choices and deletion</h2>
+<p>You can stop using Facebook features and remove the app's access through your Facebook account settings. To request deletion of information associated with AICKIE AI, email us using the contact details below.</p>
+<h2>Contact</h2>
+<p>Email: <a href="mailto:sakutandaizzeckie@gmail.com">sakutandaizzeckie@gmail.com</a></p>
+</body>
+</html>`);
+});
+
+app.get('/data-deletion', (req, res) => {
+  res.type('html').send(`<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AICKIE AI Data Deletion</title>
+</head>
+<body style="font-family:Arial;max-width:800px;margin:40px auto;padding:20px;line-height:1.6">
+<h1>AICKIE AI Data Deletion Instructions</h1>
+<p>If you want to request deletion of information associated with AICKIE AI, email:</p>
+<p><a href="mailto:sakutandaizzeckie@gmail.com?subject=AICKIE%20AI%20Data%20Deletion%20Request">sakutandaizzeckie@gmail.com</a></p>
+<p>Use the subject "AICKIE AI Data Deletion Request". Tell us which Facebook account or Page you connected, using only enough information to identify the request. Never email your password or access token.</p>
+<p>We will review your request and delete applicable information we control, subject to any legal obligations. In the current version, connected Page information and tokens are held in temporary server memory and are cleared when the server restarts. If you wish to disconnect Facebook immediately, remove AICKIE AI from the apps and websites connected to your Facebook account.</p>
+<p>We will contact you if we need additional information to process your request.</p>
+<p>For privacy questions, contact sakutandaizzeckie@gmail.com.</p>
+<p><a href="/privacy">Read our Privacy Policy</a></p>
+</body>
+</html>`);
+});
+
 // Website fallback
 app.get('/{*splat}', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
